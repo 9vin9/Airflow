@@ -1,7 +1,8 @@
 from airflow import DAG
+from airflow.operators.email import EmailOperator
 import pendulum
 import datetime
-from airflow.operators.email import EmailOperator
+
 
 # DAG정의
 with DAG(
