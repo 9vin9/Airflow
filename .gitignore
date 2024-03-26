@@ -1,3 +1,4 @@
 venv
 .DS_Store
 dags/__pycache__/
+.env
