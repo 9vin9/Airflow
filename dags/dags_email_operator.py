@@ -5,7 +5,7 @@ from airflow.operators.email import EmailOperator
 
 # DAG정의
 with DAG(
-    bash_id = 'dags_email_operator',
+    dag_id = 'dags_email_operator',
     schedule = '0 8 1 * *',     # 매월 1일 아침 08시 
     start_date = pendulum.datetime(2024, 3, 1, tz = 'Asia/Seoul'),
     catchup = False,
