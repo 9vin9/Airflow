@@ -16,13 +16,13 @@ with DAG(
         bash_command= 'echo "data_interval_end: {{ data_interval_end }} "'
     )
 
-    bahs_t2= BashOperator(
+    bash_t2= BashOperator(
         task_id= 'bash_t2',
         env= {
-            'START_DATE: {{data_interval_start | ds}}', # key value
-            'END_DATE: {{data_interval_end | ds}}'
+            'START_DATE': '{{data_interval_start | ds}}', # key value
+            'END_DATE': '{{data_interval_end | ds}}'
         }, # dictionary
         bash_command= 'echo $START_DATE && echo $END_DATE'
     )
 
-    bash_t1 >> bahs_t2
+    bash_t1 >> bash_t2
