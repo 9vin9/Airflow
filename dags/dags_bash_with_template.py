@@ -11,11 +11,13 @@ with DAG(
     catchup= False,
 ) as dag:
     
+    # 첫 번째 BashOperator 설정
     bash_t1 = BashOperator(
         task_id= 'bash_t1',
         bash_command= 'echo "data_interval_end: {{ data_interval_end }} "'
     )
 
+    # 두 번째 BashOperator 설정
     bash_t2= BashOperator(
         task_id= 'bash_t2',
         env= {
@@ -25,4 +27,5 @@ with DAG(
         bash_command= 'echo $START_DATE && echo $END_DATE'
     )
 
+    # task 간 의존성 설정
     bash_t1 >> bash_t2
